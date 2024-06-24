@@ -1,5 +1,5 @@
 # DBスキーマ設計 スケッチ
-![ER図](./image/ERD.png)
+![ER図](../db_modeling_2/image/ERD.png)
 
 - [ER図のリンク(dbdiagram)](https://dbdiagram.io/d/ChatTool-6670a126a179551be6186911)
 
@@ -69,10 +69,10 @@
 
 
 ## 設計したテーブルのDDL
-[テーブル作成](./mysql/script/DDL.sql)
+[テーブル作成](../db_modeling_2/mysql/script/DDL.sql)
 
 ## サンプルデータを投入するDML
-[サンプルデータ](./mysql/script/DML.sql)
+[サンプルデータ](../db_modeling_2/mysql/script/DML.sql)
 
 ## ユースケースを想定したクエリ
-[クエリ](./mysql/script/query.sql)
+[クエリ](../db_modeling_2/mysql/script/query.sql)
