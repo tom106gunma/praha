@@ -1,0 +1,105 @@
+CREATE TABLE customer_info (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255),
+    phone_number VARCHAR(20) UNIQUE,
+    remind_flag BOOLEAN,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE points (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    customer_id INT,
+    FOREIGN KEY (customer_id) REFERENCES customer_info(id)
+);
+
+CREATE TABLE orders (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    customer_id INT,
+    payment_status BOOLEAN,
+    remark VARCHAR(255),
+    received_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (customer_id) REFERENCES customer_info(id)
+);
+
+CREATE TABLE point_details (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    order_id INT,
+    point_id INT,
+    point INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (order_id) REFERENCES orders(id),
+    FOREIGN KEY (point_id) REFERENCES points(id)
+);
+
+CREATE TABLE prices (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    price INT
+);
+
+CREATE TABLE categories (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255),
+    type VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE menu (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255),
+    price_id INT,
+    category_id INT,
+    takeout_flag BOOLEAN,
+    start_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    end_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (price_id) REFERENCES prices(id),
+    FOREIGN KEY (category_id) REFERENCES categories(id)
+);
+
+CREATE TABLE order_details (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    order_id INT,
+    menu_id INT,
+    quantity INT,
+    has_wasabi BOOLEAN,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (order_id) REFERENCES orders(id),
+    FOREIGN KEY (menu_id) REFERENCES menu(id)
+);
+
+CREATE TABLE order_detail_options (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    order_detail_id INT,
+    shari_size VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (order_detail_id) REFERENCES order_details(id)
+);
+
+CREATE TABLE carts (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    customer_id INT,
+    menu_id INT,
+    quantity INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (customer_id) REFERENCES customer_info(id),
+    FOREIGN KEY (menu_id) REFERENCES menu(id)
+);
+
+CREATE TABLE price_history (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    price_id INT,
+    menu_id INT,
+    start_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    end_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (price_id) REFERENCES prices(id),
+    FOREIGN KEY (menu_id) REFERENCES menu(id)
+);
