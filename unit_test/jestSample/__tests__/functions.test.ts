@@ -7,8 +7,8 @@ describe("sumOfArrayのテスト", () => {
     expect(sumOfArray([1,1])).toBe(2);
   });
 
-  test("[]を渡したら例外が発生すること", () => {
-    expect(() => sumOfArray([])).toThrow();
+  test("[]を渡したら0になること", () => {
+    expect(sumOfArray([])).toBe(0);
   });
   // 無名関数でラップする。toThrowが呼ばれる前にエラーで停止してしまうから。
 
@@ -27,8 +27,8 @@ describe("asyncSumOfArrayのテスト", () => {
     expect(await asyncSumOfArray([1,1])).toBe(2);
   });
 
-  test("[]を渡したら例外が発生すること", async () => {
-    await expect(() => asyncSumOfArray([])).rejects.toThrow();
+  test("[]を渡したら0になること", async () => {
+    expect(await asyncSumOfArray([])).toBe(0);
   });
 
 });
