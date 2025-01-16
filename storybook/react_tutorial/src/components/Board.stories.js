@@ -14,3 +14,17 @@ Default.args = {
   squares: ['X', 'X', 'O', null, null, null, 'O', null, null],
   onPlay: action('onPlay'),
 };
+
+export const WinnerX = Template.bind({});
+WinnerX.args = {
+  xIsNext: false,
+  squares: ['X', 'X', 'X', null, 'O', null, 'O', null, null],
+  onPlay: action('onPlay'),
+};
+
+export const AllTriangle = Template.bind({});
+AllTriangle.args = {
+  xIsNext: true,
+  squares: ['△', '△', '△', '△', '△', '△', '△', '△', '△'],
+  onPlay: action('onPlay'),
+};
