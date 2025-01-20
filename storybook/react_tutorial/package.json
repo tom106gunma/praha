@@ -33,10 +33,12 @@
     "@storybook/addon-interactions": "^8.6.0-alpha.0",
     "@storybook/addon-onboarding": "^8.6.0-alpha.0",
     "@storybook/blocks": "^8.6.0-alpha.0",
+    "@storybook/jest": "^0.2.3",
     "@storybook/preset-create-react-app": "^8.6.0-alpha.0",
     "@storybook/react": "^8.6.0-alpha.0",
     "@storybook/react-webpack5": "^8.6.0-alpha.0",
     "@storybook/test": "^8.6.0-alpha.0",
+    "@storybook/testing-library": "^0.2.2",
     "prop-types": "^15.8.1",
     "storybook": "^8.6.0-alpha.0",
     "webpack": "^5.97.1"
