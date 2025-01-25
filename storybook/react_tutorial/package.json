@@ -1,0 +1,48 @@
+{
+  "name": "react.dev",
+  "version": "0.0.0",
+  "main": "/src/index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "chromatic": "chromatic"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-scripts": "^5.0.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^3.2.3",
+    "@storybook/addon-essentials": "^8.6.0-alpha.0",
+    "@storybook/addon-interactions": "^8.6.0-alpha.0",
+    "@storybook/addon-onboarding": "^8.6.0-alpha.0",
+    "@storybook/blocks": "^8.6.0-alpha.0",
+    "@storybook/jest": "^0.2.3",
+    "@storybook/preset-create-react-app": "^8.6.0-alpha.0",
+    "@storybook/react": "^8.6.0-alpha.0",
+    "@storybook/react-webpack5": "^8.6.0-alpha.0",
+    "@storybook/test": "^8.6.0-alpha.0",
+    "@storybook/testing-library": "^0.2.2",
+    "chromatic": "^11.25.0",
+    "prop-types": "^15.8.1",
+    "storybook": "^8.6.0-alpha.0",
+    "webpack": "^5.97.1"
+  }
+}
